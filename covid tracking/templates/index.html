@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Covid Tracking</title>
+    <style>
+        .title{
+            font-family: "Agency FB";
+            color:white;
+            background-color: black;
+            font-size: 25px;
+            text-align: center;
+        }
+        .heading{
+            font-size: 30px;
+            text-align: center;
+            background-color: black;
+            color:white;
+        }
+        .menu{
+            font-size: 35px;
+            text-align: center;
+            color:black;
+        }
+        .link{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+   <table align="center" border="2" width="1000">
+       <th colspan="7" class="heading">Covid-19 Tracking System</th>
+       <tr>
+           <th class="menu">id</th>
+           <th class="menu">country</th>
+           <th class="menu">confirmed</th>
+           <th class="menu">active</th>
+           <th class="menu">deaths</th>
+           <th class="menu">recovered</th>
+           <th class="menu">view country in map</th>
+       </tr>
+           {% for x in data %}
+               <tr>
+               <th class="title">{{ x.id }}</th>
+               <th class="title">{{ x.country }}</th>
+               <th class="title">{{ x.confirmed }}</th>
+               <th class="title">{{ x.active }}</th>
+               <th class="title">{{ x.deaths }}</th>
+               <th class="title">{{ x.recovered }}</th>
+               <th bgcolor="black">
+                   <a class="link" href="https://www.google.com/maps/search/?api=1&query={{ x.latitude }},{{ x.longitude }}" target="_blank">open</a>
+               </th>
+               </tr>
+           {% endfor %}
+   </table>
+</body>
+</html>
